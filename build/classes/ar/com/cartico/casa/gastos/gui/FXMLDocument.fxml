@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="574.0" prefWidth="735.0" stylesheets="@../../../../../../style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ar.com.cartico.casa.gastos.gui.FXMLDocumentController">
+   <children>
+      <ImageView fitHeight="546.0" fitWidth="735.0" opacity="0.5">
+         <image>
+            <Image url="@../../../../../../textura.jpg" />
+         </image>
+      </ImageView>
+      <TabPane layoutX="208.0" layoutY="103.0" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab text="Inicio">
+               <content>
+                  <AnchorPane prefHeight="496.0" prefWidth="727.0" style="-fx-background-color: #007acc;">
+                     <children>
+                        <ImageView fitHeight="546.0" fitWidth="735.0" opacity="0.5">
+                           <image>
+                              <Image url="@../../../../../../textura.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="lblBienvenide" layoutX="129.0" layoutY="31.0" prefHeight="57.0" prefWidth="333.0" text="Bienvenide!" />
+                        <Label layoutX="27.0" layoutY="130.0" prefHeight="33.0" prefWidth="128.0" text="Miembros de la casa" />
+                        <Label layoutX="246.0" layoutY="163.0" prefHeight="37.0" prefWidth="182.0" text="Nombre de la casa" />
+                        <TextField fx:id="txtNombreCasa" layoutX="355.0" layoutY="169.0" prefHeight="25.0" prefWidth="238.0" />
+                        <Button layoutX="603.0" layoutY="169.0" mnemonicParsing="false" onAction="#UpdateCasa" prefHeight="25.0" prefWidth="91.0" text="Modificar" />
+                        <Label layoutX="245.0" layoutY="203.0" prefHeight="37.0" prefWidth="182.0" text="Agregar miembro" />
+                        <Label layoutX="245.0" layoutY="245.0" prefHeight="37.0" prefWidth="182.0" text="Implicancia G / GF" />
+                        <Label layoutX="245.0" layoutY="285.0" prefHeight="37.0" prefWidth="182.0" text="Eliminar miembro" />
+                        <TextField fx:id="txtAgregarMiembro" layoutX="355.0" layoutY="211.0" prefHeight="25.0" prefWidth="237.0" />
+                        <Button fx:id="btnAgregarMiembro" layoutX="603.0" layoutY="211.0" mnemonicParsing="false" onAction="#AgregarMiembro" prefHeight="25.0" prefWidth="91.0" text="Agregar" />
+                        <Button fx:id="btnModificarMiembro" layoutX="603.0" layoutY="251.0" mnemonicParsing="false" onAction="#UpdateMiembro" prefHeight="25.0" prefWidth="91.0" text="Modificar" />
+                        <Button fx:id="btnEliminarMiembro" layoutX="603.0" layoutY="291.0" mnemonicParsing="false" onAction="#EliminarMiembro" prefHeight="25.0" prefWidth="91.0" text="Eliminar" />
+                        <ComboBox fx:id="cmbEliminarMiembro" layoutX="352.0" layoutY="291.0" prefHeight="25.0" prefWidth="245.0" />
+                        <TableView fx:id="tblMiembros" layoutX="14.0" layoutY="164.0" onMouseClicked="#seleccionarMiembro" prefHeight="200.0" prefWidth="211.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="C1" />
+                            <TableColumn prefWidth="75.0" text="C2" />
+                          </columns>
+                        </TableView>
+                        <ComboBox fx:id="cmbImplicanciaG" layoutX="355.0" layoutY="251.0" prefHeight="25.0" prefWidth="110.0" />
+                        <ComboBox fx:id="cmbImplicanciaGF" layoutX="495.0" layoutY="252.0" prefHeight="25.0" prefWidth="98.0" />
+                     </children>
+                  </AnchorPane>
+               </content></Tab>
+          <Tab text="Gastos Fijos">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #007acc;">
+                     <children>
+                        <ImageView fitHeight="546.0" fitWidth="735.0" opacity="0.5">
+                           <image>
+                              <Image url="@../../../../../../textura.jpg" />
+                           </image>
+                        </ImageView>
+                        <TableView fx:id="tblGastoFijo" layoutX="14.0" layoutY="208.0" onMouseClicked="#SeleccionarGastoFijo" prefHeight="200.0" prefWidth="622.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="C1" />
+                            <TableColumn prefWidth="75.0" text="C2" />
+                          </columns>
+                        </TableView>
+                        <ComboBox fx:id="cmbMesGastoFijo" layoutX="69.0" layoutY="46.0" prefHeight="25.0" prefWidth="218.0" />
+                        <TextField fx:id="txtAñoGastoFijo" layoutX="70.0" layoutY="14.0" prefHeight="25.0" prefWidth="217.0" />
+                        <ComboBox fx:id="cmbMiembroGastoFijo" layoutX="69.0" layoutY="80.0" prefHeight="25.0" prefWidth="217.0" />
+                        <ComboBox fx:id="cmbDetalleGastoFijo" layoutX="69.0" layoutY="114.0" onAction="#OtroDetalleGastoFijo" prefHeight="25.0" prefWidth="100.0" />
+                        <TextField fx:id="txtMontoGastoFijo" layoutX="70.0" layoutY="149.0" prefHeight="25.0" prefWidth="220.0" />
+                        <Label layoutX="14.0" layoutY="19.0" prefHeight="17.0" prefWidth="50.0" text="Año" />
+                        <Label layoutX="14.0" layoutY="50.0" prefHeight="17.0" prefWidth="50.0" text="Mes" />
+                        <Label layoutX="14.0" layoutY="85.0" prefHeight="17.0" prefWidth="50.0" text="Miembro" />
+                        <Label layoutX="14.0" layoutY="119.0" prefHeight="17.0" prefWidth="50.0" text="Detalle" />
+                        <Label layoutX="14.0" layoutY="153.0" prefHeight="17.0" prefWidth="50.0" text="Monto" />
+                        <Button layoutX="481.0" layoutY="15.0" mnemonicParsing="false" onAction="#AgregarGastoFijo" prefHeight="25.0" prefWidth="94.0" text="Agregar " />
+                        <Button layoutX="481.0" layoutY="50.0" mnemonicParsing="false" onAction="#UpdateGastoFijo" prefHeight="25.0" prefWidth="94.0" text="Modificar" />
+                        <Button layoutX="567.0" layoutY="287.0" mnemonicParsing="false" onAction="#BuscarGastoFijo" prefHeight="25.0" prefWidth="101.0" text="Buscar" />
+                        <Button layoutX="480.0" layoutY="84.0" mnemonicParsing="false" onAction="#EliminarGastoFijo" prefHeight="25.0" prefWidth="96.0" text="Eliminar" />
+                        <TextField fx:id="txtDetalleGastoFijo" layoutX="178.0" layoutY="114.0" prefHeight="25.0" prefWidth="109.0" />
+                        <Label fx:id="lblErrorAgregarGastoFijo" layoutX="586.0" layoutY="20.0" prefHeight="17.0" prefWidth="137.0" />
+                        <Label fx:id="lblErrorUpdateGastoFijo" layoutX="586.0" layoutY="54.0" prefHeight="17.0" prefWidth="137.0" />
+                        <Label layoutX="52.0" layoutY="291.0" prefHeight="17.0" prefWidth="50.0" text="Filtro" />
+                        <ComboBox fx:id="cmbFiltroGastoFijo" layoutX="91.0" layoutY="287.0" onAction="#cmbFiltroGastoFijoSeleccion" prefHeight="25.0" prefWidth="121.0" />
+                        <ComboBox fx:id="cmbTipoBusquedaGastoFijo" layoutX="247.0" layoutY="287.0" prefHeight="25.0" prefWidth="121.0" />
+                        <Label fx:id="lblErrorDeleteGastoFijo" layoutX="586.0" layoutY="87.0" prefHeight="17.0" prefWidth="137.0" />
+                        <Label fx:id="lblAñoGastoFijo" layoutX="298.0" layoutY="18.0" prefHeight="17.0" prefWidth="183.0" />
+                        <Label fx:id="lblDetalleGastoFijo" layoutX="298.0" layoutY="118.0" prefHeight="17.0" prefWidth="182.0" />
+                        <Label fx:id="lblMontoGastoFijo" layoutX="298.0" layoutY="153.0" prefHeight="17.0" prefWidth="183.0" />
+                        <Label fx:id="lblErrorBusquedaGastoFijo" layoutX="359.0" layoutY="264.0" prefHeight="17.0" prefWidth="192.0" />
+                        <ComboBox fx:id="cmbTipoBusquedaGastoFijoDos" layoutX="407.0" layoutY="287.0" prefHeight="25.0" prefWidth="121.0" />
+                     </children>
+                  </AnchorPane>
+               </content></Tab>
+            <Tab text="Gastos">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #007acc;">
+                     <children>
+                        <ImageView fitHeight="546.0" fitWidth="735.0" opacity="0.5">
+                           <image>
+                              <Image url="@../../../../../../textura.jpg" />
+                           </image>
+                        </ImageView>
+                        <TableView fx:id="tblGasto" layoutX="14.0" layoutY="208.0" onMouseClicked="#SeleccionarGasto" prefHeight="200.0" prefWidth="622.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                           <columns>
+                              <TableColumn prefWidth="75.0" text="C1" />
+                              <TableColumn prefWidth="75.0" text="C2" />
+                           </columns>
+                        </TableView>
+                        <ComboBox fx:id="cmbMesGasto" layoutX="69.0" layoutY="46.0" prefHeight="25.0" prefWidth="218.0" />
+                        <TextField fx:id="txtAñoGasto" layoutX="70.0" layoutY="14.0" prefHeight="25.0" prefWidth="217.0" />
+                        <ComboBox fx:id="cmbMiembroGasto" layoutX="69.0" layoutY="80.0" prefHeight="25.0" prefWidth="217.0" />
+                        <ComboBox fx:id="cmbDetalleGasto" layoutX="69.0" layoutY="114.0" onAction="#OtroDetalleGasto" prefHeight="25.0" prefWidth="100.0" />
+                        <TextField fx:id="txtMontoGasto" layoutX="70.0" layoutY="149.0" prefHeight="25.0" prefWidth="220.0" />
+                        <Label layoutX="14.0" layoutY="19.0" prefHeight="17.0" prefWidth="50.0" text="Año" />
+                        <Label layoutX="14.0" layoutY="50.0" prefHeight="17.0" prefWidth="50.0" text="Mes" />
+                        <Label layoutX="14.0" layoutY="85.0" prefHeight="17.0" prefWidth="50.0" text="Miembro" />
+                        <Label layoutX="14.0" layoutY="119.0" prefHeight="17.0" prefWidth="50.0" text="Detalle" />
+                        <Label layoutX="14.0" layoutY="153.0" prefHeight="17.0" prefWidth="50.0" text="Monto" />
+                        <Button layoutX="481.0" layoutY="15.0" mnemonicParsing="false" onAction="#AgregarGasto" prefHeight="25.0" prefWidth="94.0" text="Agregar " />
+                        <Button layoutX="481.0" layoutY="50.0" mnemonicParsing="false" onAction="#UpdateGasto" prefHeight="25.0" prefWidth="94.0" text="Modificar" />
+                        <Button layoutX="567.0" layoutY="287.0" mnemonicParsing="false" onAction="#BuscarGasto" prefHeight="25.0" prefWidth="101.0" text="Buscar" />
+                        <Button layoutX="480.0" layoutY="84.0" mnemonicParsing="false" onAction="#EliminarGasto" prefHeight="25.0" prefWidth="96.0" text="Eliminar" />
+                        <TextField fx:id="txtDetalleGasto" layoutX="178.0" layoutY="114.0" prefHeight="25.0" prefWidth="109.0" />
+                        <Label fx:id="lblErrorAgregarGasto" layoutX="586.0" layoutY="20.0" prefHeight="17.0" prefWidth="137.0" />
+                        <Label fx:id="lblErrorUpdateGasto" layoutX="586.0" layoutY="54.0" prefHeight="17.0" prefWidth="137.0" />
+                        <Label layoutX="52.0" layoutY="291.0" prefHeight="17.0" prefWidth="50.0" text="Filtro" />
+                        <ComboBox fx:id="cmbFiltroGasto" layoutX="91.0" layoutY="287.0" onAction="#cmbFiltroGastoSeleccion" prefHeight="25.0" prefWidth="121.0" />
+                        <ComboBox fx:id="cmbTipoBusquedaGasto" layoutX="247.0" layoutY="287.0" prefHeight="25.0" prefWidth="121.0" />
+                        <Label fx:id="lblErrorDeleteGasto" layoutX="586.0" layoutY="87.0" prefHeight="17.0" prefWidth="137.0" />
+                        <Label fx:id="lblAñoGasto" layoutX="298.0" layoutY="18.0" prefHeight="17.0" prefWidth="183.0" />
+                        <Label fx:id="lblDetalleGasto" layoutX="298.0" layoutY="118.0" prefHeight="17.0" prefWidth="182.0" />
+                        <Label fx:id="lblMontoGasto" layoutX="298.0" layoutY="153.0" prefHeight="17.0" prefWidth="183.0" />
+                        <Label fx:id="lblErrorBusquedaGasto" layoutX="359.0" layoutY="264.0" prefHeight="17.0" prefWidth="192.0" />
+                        <ComboBox fx:id="cmbTipoBusquedaGastoDos" layoutX="407.0" layoutY="287.0" prefHeight="25.0" prefWidth="121.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="deuda">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #007acc;">
+                     <children>
+                        <ImageView fitHeight="546.0" fitWidth="735.0" opacity="0.5">
+                           <image>
+                              <Image url="@../../../../../../textura.jpg" />
+                           </image>
+                        </ImageView>
+                        <TextArea fx:id="txaDeudaMiembroG" layoutX="22.0" layoutY="106.0" prefHeight="407.0" prefWidth="121.0" />
+                        <TextArea fx:id="txaDeudaMontoG" layoutX="154.0" layoutY="106.0" prefHeight="407.0" prefWidth="121.0" />
+                        <TextArea fx:id="txaDeudaMiembroGF" layoutX="457.0" layoutY="106.0" prefHeight="407.0" prefWidth="121.0" />
+                        <TextArea fx:id="txaDeudaMontoGF" layoutX="589.0" layoutY="106.0" prefHeight="407.0" prefWidth="121.0" />
+                        <Label alignment="CENTER" layoutX="22.0" layoutY="22.0" prefHeight="70.0" prefWidth="250.0" text="Gastos corrientes">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="458.0" layoutY="23.0" prefHeight="68.0" prefWidth="250.0" text="Gastos fijos">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="313.0" layoutY="183.0" prefHeight="27.0" prefWidth="113.0" text="Paga" textAlignment="CENTER">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="311.0" layoutY="233.0" prefHeight="27.0" prefWidth="113.0" text="A" textAlignment="CENTER">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="311.0" layoutY="283.0" prefHeight="27.0" prefWidth="113.0" text="La cantidad" textAlignment="CENTER">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="cmbDeudaMiembro1" layoutX="293.0" layoutY="210.0" prefWidth="150.0" />
+                        <ComboBox fx:id="cmbDeudaMiembro2" layoutX="293.0" layoutY="260.0" prefWidth="150.0" />
+                        <TextField fx:id="txtDeudaMonto" layoutX="295.0" layoutY="310.0" />
+                        <Button layoutX="344.0" layoutY="398.0" mnemonicParsing="false" onAction="#btnPagarDeuda" text="Pagar" />
+                        <Label alignment="CENTER" layoutX="311.0" layoutY="334.0" prefHeight="27.0" prefWidth="113.0" text="De gasto" textAlignment="CENTER">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="cmbDeudaGasto" layoutX="293.0" layoutY="361.0" prefWidth="150.0" />
+                        <Label fx:id="lblErrorDeuda" layoutX="293.0" layoutY="437.0" prefHeight="39.0" prefWidth="149.0" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Analisis">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #007acc;">
+                     <children>
+                        <ImageView fitHeight="546.0" fitWidth="735.0" opacity="0.5">
+                           <image>
+                              <Image url="@../../../../../../textura.jpg" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="23.0" layoutY="103.0" prefHeight="26.0" prefWidth="65.0" text="Total" />
+                        <Label layoutX="23.0" layoutY="138.0" prefHeight="37.0" prefWidth="104.0" text="Total del año" />
+                        <Label layoutX="23.0" layoutY="184.0" prefHeight="37.0" prefWidth="104.0" text="Total del mes" />
+                        <TextField fx:id="txtTotal" layoutX="121.0" layoutY="104.0" />
+                        <TextField fx:id="txtTotalAñoActual" layoutX="121.0" layoutY="144.0" />
+                        <TextField fx:id="txtTotalMesActual" layoutX="121.0" layoutY="190.0" />
+                        <ComboBox fx:id="cmbOtroAño" layoutX="360.0" layoutY="144.0" onAction="#cmbOtroAño" prefHeight="25.0" prefWidth="184.0" />
+                        <Label layoutX="282.0" layoutY="144.0" prefHeight="26.0" prefWidth="65.0" text="Otro Año" />
+                        <ComboBox fx:id="cmbOtroMes" layoutX="360.0" layoutY="190.0" onAction="#cmbOtroMes" prefHeight="25.0" prefWidth="89.0" />
+                        <ComboBox fx:id="cmbOtroMesAño" layoutX="463.0" layoutY="190.0" onAction="#cmbOtroMesAño" prefHeight="25.0" prefWidth="81.0" />
+                        <Label layoutX="282.0" layoutY="190.0" prefHeight="26.0" prefWidth="65.0" text="Otro mes" />
+                        <TextField fx:id="txtTotalAño" layoutX="564.0" layoutY="145.0" />
+                        <TextField fx:id="txtTotalMes" layoutX="564.0" layoutY="190.0" />
+                        <ComboBox fx:id="cmbTipoFiltroAnalisis" layoutX="218.0" layoutY="33.0" onAction="#cmbFiltroAnalisis" prefHeight="25.0" prefWidth="122.0" />
+                        <ComboBox fx:id="cmbFiltroAnalisis" layoutX="363.0" layoutY="33.0" prefHeight="25.0" prefWidth="114.0" />
+                        <Label layoutX="23.0" layoutY="258.0" prefHeight="26.0" prefWidth="65.0" text="Total" />
+                        <Label layoutX="23.0" layoutY="293.0" prefHeight="37.0" prefWidth="104.0" text="Total del año" />
+                        <Label layoutX="23.0" layoutY="339.0" prefHeight="37.0" prefWidth="104.0" text="Total del mes" />
+                        <TextField fx:id="txtTotalGF" layoutX="121.0" layoutY="259.0" />
+                        <TextField fx:id="txtTotalAñoActualGF" layoutX="121.0" layoutY="299.0" />
+                        <TextField fx:id="txtTotalMesActualGF" layoutX="121.0" layoutY="345.0" />
+                        <ComboBox fx:id="cmbOtroAñoGF" layoutX="360.0" layoutY="299.0" onAction="#cmbOtroAñoGF" prefHeight="25.0" prefWidth="184.0" />
+                        <Label layoutX="282.0" layoutY="299.0" prefHeight="26.0" prefWidth="65.0" text="Otro Año" />
+                        <ComboBox fx:id="cmbOtroMesGF" layoutX="360.0" layoutY="345.0" onAction="#cmbOtroMesGF" prefHeight="25.0" prefWidth="89.0" />
+                        <ComboBox fx:id="cmbOtroMesAñoGF" layoutX="463.0" layoutY="345.0" onAction="#cmbOtroMesAñoGF" prefHeight="25.0" prefWidth="81.0" />
+                        <Label layoutX="282.0" layoutY="345.0" prefHeight="26.0" prefWidth="65.0" text="Otro mes" />
+                        <TextField fx:id="txtTotalAñoGF" layoutX="564.0" layoutY="300.0" />
+                        <TextField fx:id="txtTotalMesGF" layoutX="564.0" layoutY="345.0" />
+                        <Button layoutX="496.0" layoutY="33.0" mnemonicParsing="false" onAction="#btnFiltrar" prefHeight="25.0" prefWidth="68.0" text="Filtrar" />
+                        <Label layoutX="14.0" layoutY="468.0" prefHeight="26.0" prefWidth="65.0" text="Total" />
+                        <Label layoutX="221.0" layoutY="462.0" prefHeight="37.0" prefWidth="104.0" text="Total del año" />
+                        <Label layoutX="479.0" layoutY="462.0" prefHeight="37.0" prefWidth="104.0" text="Total del mes" />
+                        <TextField fx:id="txtTotalGlobal" layoutX="57.0" layoutY="469.0" />
+                        <TextField fx:id="txtTotalAñoActualGlobal" layoutX="313.0" layoutY="468.0" />
+                        <TextField fx:id="txtTotalMesActualGlobal" layoutX="562.0" layoutY="468.0" />
+                        <Button layoutX="574.0" layoutY="33.0" mnemonicParsing="false" onAction="#btnLimpiar" prefHeight="25.0" prefWidth="72.0" text="Limpiar" />
+                        <Label alignment="CENTER" layoutX="295.0" layoutY="96.0" prefHeight="41.0" prefWidth="404.0" text="Analisis Gastos Corrientes">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="302.0" layoutY="251.0" prefHeight="41.0" prefWidth="404.0" text="Analisis Gastos Fijos">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="166.0" layoutY="412.0" prefHeight="41.0" prefWidth="404.0" text="Analisis Global" textAlignment="CENTER">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="75.0" layoutY="37.0" prefHeight="17.0" prefWidth="122.0" text="Añadir Filtro" />
+                        <Label fx:id="lblErrorAnalisis" layoutX="497.0" layoutY="14.0" prefHeight="17.0" prefWidth="148.0" />
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
